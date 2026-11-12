@@ -1,5 +1,5 @@
 // Simple offline cache. Bump V when you change index.html so users get the update.
-const V = 'hina-b26-v13';
+const V = 'hina-b26-v14';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './extras.css', './extras.js', './extras2.js', './extras3.js', './extras4.js', './extras5.js', './extras6.js', './extras7.js', './extras8.js', './extras9.js', './qr.js'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));

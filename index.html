@@ -585,7 +585,7 @@ G.rotation.order='ZXY';let tX=0,tZ=0,tiX=0,tiZ=0;
 addEventListener('deviceorientation',e=>{if(!S2.tilt||e.beta==null)return;tX=Math.max(-1,Math.min(1,(e.beta-50)/40))*.14;tZ=Math.max(-1,Math.min(1,e.gamma/40))*.14});
 addEventListener('pointermove',e=>{if(!S2.tilt||e.pointerType!='mouse')return;tX=(e.clientY/innerHeight-.5)*.2;tZ=(e.clientX/innerWidth-.5)*-.2});
 addEventListener('pointerdown',()=>{try{window.DeviceOrientationEvent&&DeviceOrientationEvent.requestPermission&&DeviceOrientationEvent.requestPermission().catch(()=>{})}catch(e){}},{once:true});
-(function tl2(){requestAnimationFrame(tl2);tiX+=(tX-tiX)*.08;tiZ+=(tZ-tiZ)*.08;G.rotation.x=(S2.tilt&&!window.HHold)?tiX:0;G.rotation.z=(S2.tilt&&!window.HHold)?tiZ:0})();
+(function tl2(){requestAnimationFrame(tl2);tiX+=(tX-tiX)*.08;tiZ+=(tZ-tiZ)*.08;G.rotation.x=0;G.rotation.z=0})();
 // Auto day/night
 document.body.insertAdjacentHTML('beforeend','<div id="tod"></div>');
 function todApply(){const h=new Date().getHours(),day=h>=6&&h<17;window.dayT=!!S2.auto&&day;document.body.classList.toggle('day',window.dayT);document.body.classList.toggle('night',!!S2.auto&&!day);aps()}
